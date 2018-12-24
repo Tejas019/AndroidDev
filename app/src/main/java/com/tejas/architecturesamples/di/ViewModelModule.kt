@@ -1,7 +1,7 @@
 package com.tejas.architecturesamples.di
 
 import android.arch.lifecycle.ViewModel
-import com.tejas.architecturesamples.ui.MainActivityViewModel
+import com.tejas.architecturesamples.ui.home.MainActivityViewModel
 import com.tejas.helpers.utils.ViewModelKey
 import dagger.Binds
 import dagger.Module

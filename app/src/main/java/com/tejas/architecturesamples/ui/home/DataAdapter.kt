@@ -1,4 +1,4 @@
-package com.tejas.architecturesamples.ui
+package com.tejas.architecturesamples.ui.home
 
 import android.support.v7.util.SortedList
 import android.support.v7.widget.RecyclerView
@@ -11,7 +11,7 @@ import kotlinx.android.synthetic.main.list_item_data.view.*
 
 class DataAdapter: RecyclerView.Adapter<DataAdapter.DataHolder>() {
 
-    lateinit var mSortedList: SortedList<MyData>
+    private var mSortedList: SortedList<MyData>
 
     init {
         mSortedList = SortedList(MyData::class.java, object:SortedListAdapterCallback<MyData>(this) {

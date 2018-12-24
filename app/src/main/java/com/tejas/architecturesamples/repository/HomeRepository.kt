@@ -2,8 +2,8 @@ package com.tejas.architecturesamples.repository
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MediatorLiveData
-import com.tejas.architecturesamples.ui.MyData
-import com.tejas.architecturesamples.ui.MyDataDao
+import com.tejas.architecturesamples.ui.home.MyData
+import com.tejas.architecturesamples.ui.home.MyDataDao
 import com.tejas.helpers.utils.AppExecutors
 import com.tejas.helpers.utils.Resource
 import retrofit2.Retrofit

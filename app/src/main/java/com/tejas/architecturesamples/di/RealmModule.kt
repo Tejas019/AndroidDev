@@ -3,8 +3,8 @@ package com.tejas.architecturesamples.di
 import android.content.Context
 import android.util.Base64
 import com.tejas.architecturesamples.repository.AppRealmModule
-import com.tejas.architecturesamples.ui.MyDataDao
-import com.tejas.architecturesamples.ui.RealmMyDataDao
+import com.tejas.architecturesamples.ui.home.MyDataDao
+import com.tejas.architecturesamples.ui.home.RealmMyDataDao
 import com.tejas.helpers.constants.Constants.Companion.REALM_DB_MYAPP
 import com.tejas.helpers.constants.Constants.Companion.REALM_ENCRYPTION_KEY
 import dagger.Module
@@ -30,7 +30,7 @@ class RealmModule constructor(private val mContext: Context) {
 
     private fun getEncryptionKey(): ByteArray {
         val prefs = mContext.getSharedPreferences(mContext.packageName, Context.MODE_PRIVATE)
-        var encryptionKey = prefs.getString(REALM_ENCRYPTION_KEY, "");
+        var encryptionKey = prefs.getString(REALM_ENCRYPTION_KEY, "")
         if (encryptionKey.isNullOrEmpty()) {
             val rand = Random()
             val bytesArray = ByteArray(64)

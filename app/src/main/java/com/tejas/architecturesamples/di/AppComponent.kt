@@ -1,6 +1,6 @@
 package com.tejas.architecturesamples.di
 
-import com.tejas.architecturesamples.ui.MainActivity
+import com.tejas.architecturesamples.ui.home.MainActivity
 import com.tejas.helpers.di.AppModule
 import com.tejas.helpers.di.RetrofitModule
 import dagger.Component

@@ -1,4 +1,4 @@
-package com.tejas.architecturesamples.ui
+package com.tejas.architecturesamples.ui.home
 
 import android.arch.lifecycle.LiveData
 

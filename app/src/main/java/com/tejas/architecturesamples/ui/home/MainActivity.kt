@@ -1,4 +1,4 @@
-package com.tejas.architecturesamples.ui
+package com.tejas.architecturesamples.ui.home
 
 import android.app.AlertDialog
 import android.arch.lifecycle.Observer

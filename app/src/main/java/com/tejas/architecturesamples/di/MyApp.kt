@@ -5,6 +5,7 @@ import com.tejas.architecturesamples.repository.AppRealmModule
 import com.tejas.helpers.constants.Constants.Companion.BASE_URL
 import com.tejas.helpers.di.AppModule
 import com.tejas.helpers.di.RetrofitModule
+import io.realm.Realm
 import okhttp3.Interceptor
 import okhttp3.Request
 
@@ -14,10 +15,8 @@ class MyApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        RealmModule.init(this)
-
         val interceptor = Interceptor { chain ->
-            var newRequest: Request
+            val newRequest: Request
             val request = chain.request()
             val builder = request.newBuilder()
             newRequest = builder.build()

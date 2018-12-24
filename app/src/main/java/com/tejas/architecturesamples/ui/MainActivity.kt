@@ -1,16 +1,15 @@
 package com.tejas.architecturesamples.ui
 
+import android.app.AlertDialog
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
-import android.support.v7.widget.RecyclerView
-import android.view.View
 import com.tejas.architecturesamples.R
-import com.tejas.helpers.utils.DaggerViewModelFactory
 import com.tejas.architecturesamples.di.MyApp
+import com.tejas.helpers.utils.DaggerViewModelFactory
 import com.tejas.helpers.utils.Status
 import com.tejas.helpers.utils.setLoading
 import kotlinx.android.synthetic.main.activity_main.*
@@ -39,9 +38,9 @@ class MainActivity : AppCompatActivity() {
             this.adapter = mDataListAdapter
         }
 
-        mainActivityViewModel.getData().observe(this, Observer {response ->
+        mainActivityViewModel.getData().observe(this, Observer { response ->
             response?.let {
-                when(it.status) {
+                when (it.status) {
                     Status.LOADING -> {
                         progress_loader.setLoading(true)
                     }
@@ -55,10 +54,22 @@ class MainActivity : AppCompatActivity() {
 
                     Status.ERROR -> {
                         progress_loader.setLoading(false)
+                        showMessage(it.message!!)
+                    }
+                    Status.UNSUCCESSFUL -> {
+                        progress_loader.setLoading(false)
+                        showMessage(it.message!!)
                     }
                 }
             }
         })
     }
 
+
+    private fun showMessage(message: String) {
+        val alertDialog = AlertDialog.Builder(this@MainActivity)
+        alertDialog.setMessage(message)
+        alertDialog.setPositiveButton(getString(R.string.ok), null)
+        alertDialog.show()
+    }
 }

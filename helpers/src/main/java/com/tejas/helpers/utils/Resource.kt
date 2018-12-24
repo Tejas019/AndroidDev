@@ -1,5 +1,11 @@
 package com.tejas.helpers.utils
 
+import com.tejas.helpers.constants.Constants.Companion.ERROR_MESSAGE_DEFAULT
+import java.lang.Exception
+import java.net.SocketTimeoutException
+import java.net.UnknownHostException
+import java.util.concurrent.TimeoutException
+
 /*
  * Copyright (C) 2017 The Android Open Source Project
  *
@@ -32,8 +38,28 @@ data class Resource<out T>(val status: Status, val data: T?, val message: String
             return Resource(Status.ERROR, data, msg)
         }
 
+        fun <T> unsuccessful(msg: String): Resource<T> {
+            return Resource(Status.UNSUCCESSFUL, null, msg)
+        }
+
         fun <T> loading(data: T?): Resource<T> {
             return Resource(Status.LOADING, data, null)
+        }
+
+        fun getExceptionMessage(e: Exception): String {
+            return when(e) {
+                is SocketTimeoutException, is TimeoutException -> {
+                    "Request timeout, Please try again later."
+                }
+
+                is UnknownHostException -> {
+                    "Please check your internet connectivity and try again later."
+                }
+
+                else -> {
+                    ERROR_MESSAGE_DEFAULT
+                }
+            }
         }
     }
 }

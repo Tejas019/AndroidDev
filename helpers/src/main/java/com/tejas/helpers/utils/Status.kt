@@ -26,5 +26,6 @@ package com.tejas.helpers.utils
 enum class Status {
     SUCCESS,
     ERROR,
+    UNSUCCESSFUL,
     LOADING
 }

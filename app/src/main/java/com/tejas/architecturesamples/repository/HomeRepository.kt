@@ -48,40 +48,4 @@ class HomeRepository @Inject constructor(private val mExecutors: AppExecutors, m
         }
         return result
     }
-
-
-//    fun getData(): io.reactivex.Observable<List<MyData>> {
-//        val result = ObservableEmitter<List<MyData>>()
-////        val db = mMyDataDao.getDataObs().toObservable()
-////        result.addSource(db) {
-////            result.value = Resource.success(it)
-////            if (it?.isEmpty()!!)
-////                result.value = Resource.loading(null)
-////            result.removeSource(db)
-////        }
-////        result.value = Resource.loading(null)
-//
-////        result
-//
-//        mExecutors.networkIO().execute {
-//            try {
-//                val response = mApiService.getData().execute()
-//                val isSuccess = response.isSuccessful
-//
-//                mExecutors.mainThread().execute {
-//                    if (isSuccess) {
-//                        result.value = Resource.success(response.body())
-//                        mMyDataDao.insertData(response.body()!!)
-//                    } else {
-//                        result.value = Resource.error(response.message(), null)
-//                    }
-//                }
-//            } catch (e: Exception) {
-//                mExecutors.mainThread().execute {
-//                    result.value = Resource.unsuccessful(Resource.getExceptionMessage(e))
-//                }
-//            }
-//        }
-//        return result
-//    }
 }

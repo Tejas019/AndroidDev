@@ -2,7 +2,6 @@ package com.tejas.architecturesamples.ui.home
 
 import android.arch.lifecycle.LiveData
 import android.arch.lifecycle.MutableLiveData
-import io.reactivex.Single
 import io.realm.Realm
 
 class RealmMyDataDao(val realm: Realm): MyDataDao {
@@ -24,6 +23,5 @@ class RealmMyDataDao(val realm: Realm): MyDataDao {
                 db.value = listOf()
         }
         return db
-
     }
 }

@@ -4,11 +4,13 @@ import android.app.AlertDialog
 import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.LinearLayoutManager
 import com.tejas.architecturesamples.R
 import com.tejas.architecturesamples.di.MyApp
+import com.tejas.architecturesamples.ui.demo.DemoActivity
 import com.tejas.helpers.utils.DaggerViewModelFactory
 import com.tejas.helpers.utils.Status
 import com.tejas.helpers.utils.setLoading
@@ -49,6 +51,7 @@ class MainActivity : AppCompatActivity() {
                         progress_loader.setLoading(false)
                         it.data?.let { list ->
                             mDataListAdapter.setData(it.data!!)
+//                            startActivity(Intent(this@MainActivity, DemoActivity::class.java))
                         }
                     }
 

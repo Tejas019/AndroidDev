@@ -6,6 +6,8 @@ import retrofit2.Call
 import java.util.*
 
 interface MyDataDao {
+
     fun insertData(myDataList: List<MyData>)
     fun getData(): LiveData<List<MyData>>
+//    fun getDataObs(): Single<List<MyData>>
 }

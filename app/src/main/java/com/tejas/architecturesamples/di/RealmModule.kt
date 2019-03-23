@@ -15,7 +15,7 @@ import java.util.*
 import javax.inject.Singleton
 
 @Module
-class RealmModule constructor(private val mContext: Context) {
+class RealmModule constructor(private var mContext: Context) {
 
     private fun init(context: Context) {
         Realm.init(context)
@@ -29,7 +29,7 @@ class RealmModule constructor(private val mContext: Context) {
     }
 
     private fun getEncryptionKey(): ByteArray {
-        val prefs = mContext.getSharedPreferences(mContext.packageName, Context.MODE_PRIVATE)
+        var prefs = mContext.getSharedPreferences(mContext.packageName, Context.MODE_PRIVATE)
         var encryptionKey = prefs.getString(REALM_ENCRYPTION_KEY, "")
         if (encryptionKey.isNullOrEmpty()) {
             val rand = Random()

@@ -5,11 +5,7 @@ import android.arch.lifecycle.MutableLiveData
 import io.reactivex.Single
 import io.realm.Realm
 
-class RealmMyDataDao(var realm: Realm): MyDataDao {
-//    override fun getDataObs(): Single<List<MyData>> {
-//
-//
-//    }
+class RealmMyDataDao(val realm: Realm): MyDataDao {
 
     override fun insertData(myDataList: List<MyData>) {
         realm.executeTransaction {
@@ -28,5 +24,6 @@ class RealmMyDataDao(var realm: Realm): MyDataDao {
                 db.value = listOf()
         }
         return db
+
     }
 }

@@ -51,6 +51,7 @@ class MainActivity : AppCompatActivity() {
                         progress_loader.setLoading(false)
                         it.data?.let { list ->
                             mDataListAdapter.setData(it.data!!)
+//                            startActivity(Intent(this@MainActivity, DemoActivity::class.java))
                         }
                     }
 
